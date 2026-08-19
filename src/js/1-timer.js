@@ -38,6 +38,11 @@ flatpickr('#datetime-picker', options);
 
 const inputRef = document.querySelector('#datetime-picker');
 
+const daysRef = document.querySelector('[data-days]');
+const hoursRef = document.querySelector('[data-hours]');
+const minutesRef = document.querySelector('[data-minutes]');
+const secondsRef = document.querySelector('[data-seconds]');
+
 startBtn.addEventListener('click', () => {
   startBtn.disabled = true;
   inputRef.disabled = true;
@@ -47,10 +52,10 @@ startBtn.addEventListener('click', () => {
     if (deltaTime <= 0) {
       clearInterval(timerId);
 
-      document.querySelector('[data-days]').textContent = '00';
-      document.querySelector('[data-hours]').textContent = '00';
-      document.querySelector('[data-minutes]').textContent = '00';
-      document.querySelector('[data-seconds]').textContent = '00';
+      daysRef.textContent = '00';
+      hoursRef.textContent = '00';
+      minutesRef.textContent = '00';
+      secondsRef.textContent = '00';
 
       inputRef.disabled = false;
       startBtn.disabled = true;
