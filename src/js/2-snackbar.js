@@ -18,21 +18,21 @@ function createPromise(delay, state) {
 form.addEventListener('submit', event => {
   event.preventDefault();
 
-  const delay = Number(form.nextElementSibling.delay.value);
+  const delay = Number(form.elements.delay.value);
   const state = form.elements.state.value;
 
   createPromise(delay, state)
     .then(delay => {
       iziToast.success({
         title: 'OK',
-        message: '`✅ Fulfilled promise in ${delay}ms`',
+        message: `✅ Fulfilled promise in ${delay}ms`,
         position: 'topRight',
       });
     })
     .catch(delay => {
       iziToast.error({
         title: 'Error',
-        message: '`❌ Rejected promise in ${delay}ms`',
+        message: `❌ Rejected promise in ${delay}ms`,
         position: 'topRight',
       });
     });

@@ -36,13 +36,19 @@ let userSelectedDate = null;
 
 flatpickr('#datetime-picker', options);
 
+const inputRef = document.querySelector('#datetime-picker');
+
 startBtn.addEventListener('click', () => {
   startBtn.disabled = true;
+  inputRef.disabled = true;
   const timerId = setInterval(() => {
     const deltaTime = userSelectedDate - new Date();
 
     if (deltaTime <= 0) {
       clearInterval(timerId);
+
+      inputRef.disabled = false;
+      startBtn.disabled = true;
       console.log('Таймер зупинено');
       return;
     }
