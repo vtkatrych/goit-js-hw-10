@@ -47,6 +47,11 @@ startBtn.addEventListener('click', () => {
     if (deltaTime <= 0) {
       clearInterval(timerId);
 
+      document.querySelector('[data-days]').textContent = '00';
+      document.querySelector('[data-hours]').textContent = '00';
+      document.querySelector('[data-minutes]').textContent = '00';
+      document.querySelector('[data-seconds]').textContent = '00';
+
       inputRef.disabled = false;
       startBtn.disabled = true;
       console.log('Таймер зупинено');
